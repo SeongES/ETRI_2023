@@ -28,31 +28,55 @@
   - GNN 모델 학습을 위한 timewise data (--type timewise)
   - Segmentation 모델 학습을 위한 daywise data (--type daywise)
 
-```augmentation.py``` : 데이터 augmentation 
+```augmentation.py``` 데이터 augmentation 
 
 ### 3.2.2 Body-Action GNN Model 
-```config.yaml``` : configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
+```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
 
-```gnn.py``` : GNN 모델
+```gnn.py``` GNN 모델
 
-```loader.py``` : GNN data loader (timewise data)
+```loader.py``` GNN data loader (timewise data)
 
-```pretrain.py``` : train 함수
+```pretrain.py``` train 함수
 
-```main.py``` : main 함수
+```main.py``` main 함수
 
 ### 3.2.3 Lifelog Segmentation Model
-```segmentation_loader.py.py``` : Segmentation loader (daywise data)
+```segmentation_loader.py``` Segmentation loader (daywise data)
 
-```segmentation.py``` : semgentation train 함수
+```segmentation.py``` semgentation train 함수
 
-```tmse.py``` : Temporal MSE 손실함수
+```tmse.py``` Temporal MSE 손실함수
 
-```main_seg.py``` : main 함수
+```main_seg.py``` main 함수
 
 
 ## 3.3 사용 방법
 ### 3.3.1 데이터 전처리
+Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr/share/schung1/ETRILifelogDataset2020?lang=ko_KR)를 활용한다. 다운로드 받은 데이터에 대해 preprocessing.py를 통해 전처리 이후 학습을 위한 디렉토리는 아래와 같습니다. 
+```
++--data
+  +--daywise
+    +--train
+      +--user01_1598759880.npz
+      +--user01_1598832660.npz
+        …
+      +--user30_1600988460.npz
+      
+    +--test
+      +--user01_1600013400.npz
+      +--user01_1600527600.npz
+        …
+      +--user30_1600902660.npz
+      
+    +--timewise
+      +--user01_1598759880_1598777040.npz
+      +--user01_1598759880_1598779980.npz
+        …
+      +--user30_1600988460_1601033040.npz 
+```
+Timewise 데이터는 클래스별 8000개씩으로 구성하고 8000개 미만의 class에 대한 데이터는 augmentation.py를 통해 8000개로 맞춘다.
+Daywise train/test 분리 별도. 
 ```
 python preprocessing.py --type daywise # daywise 파일 저장 -> GNN 모델 학습
 python preprocessing.py --type timewise # timewise 파일 저장 -> Segmentation 모델 학습
@@ -60,12 +84,12 @@ python preprocessing.py --type timewise # timewise 파일 저장 -> Segmentation
 
 ### 3.3.2 Body-Action GNN 모델 학습
 ```
-python main.py --epoch 50 --mode conbarlow --barlow_epoch 30 --save_dir <save_directory> --exp_name <save_exp_name>
+python main.py --epoch 50 --root_dir ./data/timewise --mode conbarlow --barlow_epoch 30 --save_dir <save_directory> --exp_name <save_exp_name>
 ```
 
 ### 3.3.3 Lifelog Segmentation 모델 학습
 ```
-python main_seg.py --epoch 50 --root_dir <gnn_saved_model> --mode segmentation --save_dir <save_directory> --exp_name <save_exp_name>
+python main_seg.py --epoch 50 --root_dir ./data/daywise/train --mode segmentation --save_dir <save_directory> --exp_name <save_exp_name>
 ```
 
 ## 4. Experiments
