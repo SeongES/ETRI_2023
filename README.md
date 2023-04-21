@@ -54,7 +54,7 @@
 
 ## 3.3 사용 방법
 ### 3.3.1 데이터 전처리
-Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr/share/schung1/ETRILifelogDataset2020?lang=ko_KR)를 활용한다. 다운로드 받은 데이터에 대해 preprocessing.py를 통해 전처리 이후 학습을 위한 디렉토리는 아래와 같습니다. 
+Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr/share/schung1/ETRILifelogDataset2020?lang=ko_KR)를 활용한다. 다운로드 받은 데이터에 대해 preprocessing.py를 통해 전처리 이후 학습을 위한 디렉토리는 아래와 같다. 
 ```
 +--data
   +--daywise
