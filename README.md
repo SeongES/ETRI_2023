@@ -12,43 +12,44 @@
 ## 3. Code
 
 ## 3.1 Environment
-- Python 3.X
-- Pytorch 1.13
-- Numpy
-- Pandas
-- pyyaml
-- torch-geometric 2.2.0
-- torch-scatter 2.1.1
-- torch-sparse 0.6.17
-- tensorboard (for loss visualization: Optional)
+> - Python 3.X
+> - Pytorch 1.13
+> - Numpy
+> - Pandas
+> - pyyaml
+> - torch-geometric 2.2.0
+> - torch-scatter 2.1.1
+> - torch-sparse 0.6.17
+> - tensorboard (for loss visualization: Optional)
 
 ## 3.2 파일 설명
 ### 3.2.1 전처리
-```preprocess.py``` 데이터 전처리
-  - GNN 모델 학습을 위한 timewise data (--type timewise)
-  - Segmentation 모델 학습을 위한 daywise data (--type daywise)
-
-```augmentation.py``` 데이터 augmentation 
+> ```preprocess.py``` 데이터 전처리
+>   - GNN 모델 학습을 위한 timewise data (--type timewise)
+>   - Segmentation 모델 학습을 위한 daywise data (--type daywise)
+> 
+> ```augmentation.py``` 데이터 augmentation 
 
 ### 3.2.2 Body-Action GNN Model 
-```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
-
-```gnn.py``` GNN 모델
-
-```loader.py``` GNN data loader (timewise data)
-
-```pretrain.py``` train 함수
-
-```main.py``` main 함수
+> ```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
+> 
+> ```gnn.py``` GNN 모델
+> 
+> ```loader.py``` GNN data loader (timewise data)
+> 
+> ```pretrain.py``` train 함수
+> 
+> ```main.py``` main 함수
+> 
 
 ### 3.2.3 Lifelog Segmentation Model
-```segmentation_loader.py``` Segmentation loader (daywise data)
-
-```segmentation.py``` semgentation train 함수
-
-```tmse.py``` Temporal MSE 손실함수
-
-```main_seg.py``` main 함수
+> ```segmentation_loader.py``` Segmentation loader (daywise data)
+> 
+> ```segmentation.py``` semgentation train 함수
+> 
+> ```tmse.py``` Temporal MSE 손실함수
+> 
+> ```main_seg.py``` main 함수
 
 
 ## 3.3 사용 방법
