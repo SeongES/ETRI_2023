@@ -7,7 +7,7 @@
 
 
 ## 2. Model Architecture
-<img width="80%" src=model.png>
+<img width="80%" src=model.PNG>
 
 ## 3. Code
 
