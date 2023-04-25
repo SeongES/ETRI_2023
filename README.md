@@ -23,14 +23,15 @@
 > - tensorboard (for loss visualization: Optional)
 
 ## 3.2 파일 설명
-### 3.2.1 전처리
-> ```preprocess.py``` 데이터 전처리
+### 3.2.1 전처리 (./preprocess/)
+> ```data_preprocess.py``` 데이터 전처리
 >   - GNN 모델 학습을 위한 timewise data (--type timewise)
 >   - Segmentation 모델 학습을 위한 daywise data (--type daywise)
 > 
 > ```augmentation.py``` 데이터 augmentation 
+> ```augmentation_guide.py``` augmentation guide 노트북 파일. 상황에 맞춰 augmentation 진행하면 됨. 
 
-### 3.2.2 Body-Action GNN Model 
+### 3.2.2 Body-Action GNN Model  (./code/)
 > ```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
 > 
 > ```gnn.py``` GNN 모델
@@ -42,7 +43,7 @@
 > ```main.py``` main 함수
 > 
 
-### 3.2.3 Lifelog Segmentation Model
+### 3.2.3 Lifelog Segmentation Model (./code/)
 > ```segmentation_loader.py``` Segmentation loader (daywise data)
 > 
 > ```segmentation.py``` semgentation train 함수
@@ -54,9 +55,15 @@
 
 ## 3.3 사용 방법
 ### 3.3.1 데이터 전처리
-Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr/share/schung1/ETRILifelogDataset2020?lang=ko_KR)를 활용한다. 다운로드 받은 데이터에 대해 preprocessing.py를 통해 전처리 이후 학습을 위한 디렉토리는 아래와 같다. 
+Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr/share/schung1/ETRILifelogDataset2020?lang=ko_KR)를 활용한다. './data/original/'에 원본 데이터를 다운 받은후 preprocessing.py를 통해 전처리 이후 학습을 위한 디렉토리는 아래와 같다 ("./data/daywise/", "./data/timewise/".)
 ```
 +--data
+  +--original
+    +--user01
+    +--user02
+      ...
+    +--user30
+    
   +--daywise
     +--train
       +--user01_1598759880.npz
@@ -79,8 +86,8 @@ Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr
 Timewise 데이터는 클래스별 8000개씩으로 구성하고 8000개 미만의 class에 대한 데이터는 augmentation.py를 통해 8000개로 맞춘다.
 Daywise train/test 분리 별도. 
 ```
-python preprocessing.py --type daywise # daywise 파일 저장 -> GNN 모델 학습
-python preprocessing.py --type timewise # timewise 파일 저장 -> Segmentation 모델 학습
+python preprocessing.py --type daywise --file_dir ./data/original --save_dir ./data/daywise # daywise 파일 저장 -> GNN 모델 학습
+python preprocessing.py --type timewise --file_dir ./data/original --save_dir ./data/timewise # timewise 파일 저장 -> Segmentation 모델 학습
 ```
 
 ### 3.3.2 Body-Action GNN 모델 학습
