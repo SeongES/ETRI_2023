@@ -70,7 +70,7 @@ Data는 [ETRI 라이프로그 데이터셋 (2020-2018)](https://nanum.etri.re.kr
         …
       +--user30_1600902660.npz
       
-    +--timewise
+  +--timewise
       +--user01_1598759880_1598777040.npz
       +--user01_1598759880_1598779980.npz
         …
