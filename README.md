@@ -29,7 +29,8 @@
 >   - Segmentation 모델 학습을 위한 daywise data (--type daywise)
 > 
 > ```augmentation.py``` 데이터 augmentation 
-> ```augmentation_guide.ipynb``` augmentation guide의 노트북 파일. 상황에 맞춰 augmentation 진행하면 됨. 
+> 
+> ```augmentation_guide.ipynb``` augmentation guide 노트북 파일. 상황에 맞춰 augmentation 진행하면 됨. 
 
 ### 3.2.2 Body-Action GNN Model  (./code/)
 > ```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
