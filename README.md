@@ -23,7 +23,7 @@
 > - tensorboard (for loss visualization: Optional)
 
 ## 3.2 파일 설명
-### 3.2.1 전처리 (./preprocess/)
+### 3.2.1 전처리 ("./preprocess/")
 > ```data_preprocess.py``` 데이터 전처리
 >   - GNN 모델 학습을 위한 timewise data (--type timewise)
 >   - Segmentation 모델 학습을 위한 daywise data (--type daywise)
@@ -32,7 +32,7 @@
 > 
 > ```augmentation_guide.ipynb``` augmentation guide 노트북 파일. 상황에 맞춰 augmentation 진행하면 됨. 
 
-### 3.2.2 Body-Action GNN Model  (./code/)
+### 3.2.2 Body-Action GNN Model  ("./code/")
 > ```config.yaml``` configuraion 파일 (GNN initial edge 및 모델 파라미터 등)
 > 
 > ```gnn.py``` GNN 모델
@@ -44,7 +44,7 @@
 > ```main.py``` main 함수
 > 
 
-### 3.2.3 Lifelog Segmentation Model (./code/)
+### 3.2.3 Lifelog Segmentation Model ("./code/")
 > ```segmentation_loader.py``` Segmentation loader (daywise data)
 > 
 > ```segmentation.py``` semgentation train 함수
